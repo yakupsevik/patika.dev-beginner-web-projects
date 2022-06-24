@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+:root {
+    --background-color: #FAFAFA;
+    --box-color: #F8E6CA;
+    --red-color: rgb(255, 0, 106);
+}
+
+/* Dark & Light Mode */
+
+.dark {
+    --background-color: #1f1f1f;
+    --box-color: #3b3b3b;
+}
+
+.dark .box,
+.dark #content {
+    border-color: rgb(255, 0, 106);
+}
+
+.dark .selection_btn::before {
+    background-color: #fff;
+}
+
+.dark a:hover,
+.dark h2,
+.dark p, 
+.dark ul li  {
+    color: #fff !important;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(255, 0, 106);
+    border-radius: 10px;
+}
+
+
+body {
+    background-color: var(--background-color);
+    font-family: 'Roboto', sans-serif;
+    color: #000;
+    scroll-behavior: smooth;
+    overflow: hidden !important;
+}
+
+.red-color {
+    color: var(--red-color);
+}
+
+a {
+    color: var(--red-color);
+    text-decoration: none;
+    transition: 300ms all;
+}
+
+a:hover {
+    color: #000 !important;
+}
+
+/* Main Box */
+
+.box {
+    width: 1000px;
+    height: auto;
+    background-color: var(--box-color);
+    border-radius: 10px;
+    border: 2px solid #000;
+}
+
+.box h1 {
+    font-size: 14pt;
+}
+
+.box h2 {
+    font-size: 10pt;
+}
+
+
+/* --------------- */
+
+/* Profile Image */
+.box .image-border {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    filter: grayscale(0.5);
+    transition: 300ms all;
+    cursor: pointer;
+}
+
+.box .image-border:hover {
+    filter: none;
+}
+
+/* --------------- */
+
+/* Button Style */
+
+.selection_btn {
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    border-radius: 6px;
+    text-align: center;
+    width: 105px !important;
+    max-width: 105px !important;
+    transition: 100ms all;
+}
+
+.selection_btn::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    transform: scaleY(1.1);
+    border: 2px solid rgb(87, 87, 87);
+    border-radius: inherit;
+    transform-origin: top;
+    background-image: url("../images/cross.png");
+    transition: 100ms all;
+}
+
+.selection_btn:active {
+    transform: translateY(8px);
+    padding-bottom: 0;
+}
+
+.selection_btn:active::before {
+    transform: scaleY(1);
+}
+
+.selection_btn span {
+    position: relative;
+    display: block;
+    font-size: 15px;
+    padding: 0.34em 0.84em;
+    border: 2px solid rgb(87, 87, 87);
+    border-radius: inherit;
+    background-image: linear-gradient(rgb(255, 0, 106), rgb(255, 0, 128));
+    background-repeat: no-repeat;
+    color: #fff;
+}
+
+/* --------------- */
+
+/* Content Area */
+
+#content {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* --------------- */
+
+/* Dark Mode & Light Mode Toggle Button */
+
+.toggle {
+    text-align: right !important;
+}
+
+#toggle {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: 100ms ease;
+}
+
+#moon {
+    transform: rotate(-45deg);
+    transform-origin: center center;
+}
+
+#toggle g circle {
+    transform-origin: center center;
+    transform: scale(0);
+}
+
+@keyframes hideMoon {
+    0% {
+        transform: rotate(0);
+    }
+
+    50% {
+        transform: rotate(135deg) scale(0.4);
+    }
+
+    60% {
+        transform: rotate(200deg) scale(0.2);
+    }
+
+    100% {
+        transform: rotate(200deg) scale(0);
+    }
+}
+
+@keyframes revealSun {
+    0% {
+        transform: scale(0);
+    }
+
+    40% {
+        transform: scale(0.8);
+    }
+
+    80% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes revealBeams {
+    0% {
+        transform: scale(0);
+    }
+
+    25% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes hideSun {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes revealMoon {
+    0% {
+        transform: scale(0);
+    }
+
+    10% {
+        transform: scale(0.7) rotate(100deg);
+    }
+
+    40% {
+        transform: scale(1) rotate(-15deg);
+    }
+
+    50% {
+        transform: scale(1) rotate(-60deg);
+    }
+
+    74.755% {
+        transform: scale(1) rotate(-35deg);
+    }
+
+    85% {
+        transform: scale(1) rotate(-50deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(-45deg);
+    }
+}
+
+/* --------------- */
+
+/* Media Query */
+
+@media screen and (max-width: 1024px) {
+    .box .image-border {
+        filter: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .toggle {
+        text-align: center !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .box .h2 {
+        font-size: 8pt;
+    }
+}
+
+/* --------------- */
