@@ -2,6 +2,8 @@
 
 This is a "About Me" website and it was made for the Patika.dev homework.
 
+https://about-me-patika-dev.vercel.app/
+
 <br/>
 
 # Desktop
